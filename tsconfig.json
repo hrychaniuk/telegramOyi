@@ -1,0 +1,22 @@
+{
+	"extends": "@sindresorhus/tsconfig",
+	"include": [
+		"source",
+		"test"
+	],
+	"exclude": [
+		"node_modules/"
+	],
+	"compilerOptions": {
+		"esModuleInterop": true,
+		"declaration": false,
+		"sourceMap": true,
+		"target": "ES2019",
+		"outDir": "dist",
+		"baseUrl": "./source",
+		"paths": {
+			"@": ["./"],
+			"@/*": ["./*"]
+		}
+	}
+}

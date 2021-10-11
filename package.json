@@ -1,0 +1,83 @@
+{
+	"name": "telegram-typescript-bot-template",
+	"private": true,
+	"version": "0.0.0",
+	"description": "",
+	"keywords": [
+		""
+	],
+	"license": "MIT",
+	"repository": "<%= githubUsername %>/telegram-typescript-bot-template",
+	"author": {
+		"name": "<%= name %>",
+		"email": "<%= email %>",
+		"url": "<%= website %>"
+	},
+	"scripts": {
+		"dev": "nodemon --exec 'npm run pre-dev'",
+		"pre-dev": "tsc --sourceMap && node --unhandled-rejections=strict -r source-map-support/register dist/index.js",
+		"build": "del-cli dist && tsc",
+		"start": "node dist/index.js",
+		"prepack": "npm run build",
+		"test": "tsc --sourceMap && xo && nyc ava"
+	},
+	"engines": {
+		"node": ">=14"
+	},
+	"dependencies": {
+		"atob": "^2.1.2",
+		"await-sleep": "0.0.1",
+		"axios": "^0.20.0",
+		"html-minifier": "^4.0.0",
+		"html-to-text": "^5.1.1",
+		"lodash": "^4.17.20",
+		"module-alias": "^2.2.2",
+		"moment": "^2.29.0",
+		"moment-duration-format": "^2.3.2",
+		"node-schedule": "^1.3.2",
+		"puppeteer": "^5.3.1",
+		"source-map-support": "^0.5.19",
+		"telegraf": "^3.38.0",
+		"telegraf-i18n": "^6.6.0",
+		"telegraf-inline-menu": "^5.0.0",
+		"telegraf-session-local": "^2.0.0"
+	},
+	"devDependencies": {
+		"@sindresorhus/tsconfig": "^0.7.0",
+		"@types/node": "^14.0.5",
+		"ava": "^3.0.0",
+		"del-cli": "^3.0.0",
+		"nyc": "^15.0.0",
+		"typescript": "^4.0.2",
+		"xo": "^0.33.1"
+	},
+	"files": [
+		"dist/source",
+		"!*.test.*"
+	],
+	"main": "dist/source",
+	"types": "dist/source",
+	"nyc": {
+		"all": true,
+		"extension": [
+			".ts"
+		],
+		"include": [
+			"dist/source",
+			"source"
+		],
+		"exclude": [
+			"**/*.d.ts",
+			"**/*.test.ts"
+		],
+		"reporter": [
+			"lcov",
+			"text"
+		]
+	},
+	"xo": {
+		"rules": {
+			"ava/no-ignored-test-files": "off"
+		}
+	}
+}
